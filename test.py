@@ -147,21 +147,6 @@ def upload_image():
             # print("Training complete!")
             results = []
 
-            # [
-            #     {
-            #         "filename": "test_image_1.jpeg",
-            #         "faces": [
-            #             {
-            #                 "person": "shahrukh",
-            #                 "coordinates": {
-            #                     "left": 13,
-            #                     "top": 22
-            #                 }
-            #             }
-            #         ]
-            #     }
-            # ]
-
             # The image file seems valid! Detect faces and return the result.
             for image_file in os.listdir(test_directory):
                 full_file_path = os.path.join(test_directory, image_file)
