@@ -185,6 +185,20 @@ def upload_image():
     '''
 
 
+@app.route('/trainedfaces', methods=['GET'])
+@cross_origin()
+def get_client_information():
+    if request.method == 'GET':
+        if os.path.exists(get_training_dir()):
+            trained_faces_folder = [f.path.split('/')[4] for f in os.scandir(get_training_dir()) if f.is_dir()]
+        else:
+            return {'trained_on': []}
+
+        return {'trained_on': trained_faces_folder}
+    else:
+        return {'status': 'This method is not allowed!'}
+
+
 def delete_folder(path):
     shutil.rmtree(path)
 
